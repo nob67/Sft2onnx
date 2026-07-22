@@ -1,0 +1,9 @@
+gradio
+huggingface_hub
+transformers
+diffusers
+onnx
+onnxruntime
+optimum
+bitsandbytes
+accelerate
