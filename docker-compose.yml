@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  sft2onnx:
+    build: .
+    container_name: sft2onnx
+    ports:
+      - "7860:7860"
+    environment:
+      # Set HUGGINGFACE_HUB_TOKEN in your environment (or .env) to allow private HF model downloads
+      - PORT=7860
+      - HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN:-}
+    volumes:
+      # Persist outputs and optionally place models you want the container to access
+      - ./outputs:/app/outputs
+      - ./models:/app/models
+    restart: unless-stopped
